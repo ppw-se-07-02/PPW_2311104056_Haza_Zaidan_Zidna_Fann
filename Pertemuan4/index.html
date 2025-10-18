@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Laptop Gaming</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: white;
+    }
+
+    /* === NAVBAR === */
+    .navbar {
+      background: linear-gradient(90deg, #1a1a1a, #3b004f);
+    }
+    .navbar-brand span { font-weight: bold; }
+    .merah { color: #ff3b3b; }
+    .putih { color: #fff; }
+    .ungu { color: #a020f0; }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      transition: 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ff3b3b !important;
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      height: 75vh;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: slideShow 25s infinite;
+    }
+    .slide:nth-child(1) { background-image: url('https://image2url.com/images/1760361074247-79659580-4fd4-4565-9c9c-634a56efb5ca.jpg'); animation-delay: 0s; }
+    .slide:nth-child(2) { background-image: url('https://image2url.com/images/1760361123053-7e00af79-c589-45e2-8422-c30607a523fc.jpg'); animation-delay: 5s; }
+    .slide:nth-child(3) { background-image: url('https://image2url.com/images/1760361160295-6a000e9b-e077-4692-8f4a-6cf0541e770f.jpeg'); animation-delay: 10s; }
+    .slide:nth-child(4) { background-image: url('https://image2url.com/images/1760361193431-6718f93e-9ece-4138-a30f-b89749413549.jpg'); animation-delay: 15s; }
+    .slide:nth-child(5) { background-image: url('https://image2url.com/images/1760361620346-e7816643-b585-4837-a3b8-7232f6e41367.jpg'); animation-delay: 20s; }
+
+    @keyframes slideShow {
+      0%, 20% { opacity: 1; }
+      25%, 100% { opacity: 0; }
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #ff3b3b;
+    }
+    .hero-content button {
+      background: linear-gradient(90deg, #a020f0, #ff3b3b);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hero-content button:hover {
+      background: linear-gradient(90deg, #ff3b3b, #a020f0);
+      transform: scale(1.05);
+    }
+
+    /* === FITUR === */
+    .fitur-item i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #a020f0, #ff3b3b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fitur-item h3 { color: #ff3b3b; }
+
+    /* === PRODUK === */
+    .produk {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: 0.3s;
+      border: 1px solid #2e2e2e;
+    }
+    .produk:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(255, 59, 59, 0.5);
+    }
+    .produk img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .produk button {
+      background: linear-gradient(90deg, #a020f0, #ff3b3b);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .produk button:hover {
+      background: linear-gradient(90deg, #ff3b3b, #a020f0);
+    }
+
+    /* === BRAND PARTNER === */
+    .brand-section {
+      background-color: #111;
+      padding: 50px 0;
+    }
+    .brand-section h2 {
+      text-align: center;
+      color: #ff3b3b;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .brand-logo {
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: 0.3s;
+      max-height: 60px;
+    }
+    .brand-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* === OVERLAY LOGIN/REGISTER === */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .overlay:target { display: flex; }
+    .login-box {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+    }
+    .login-box .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+    }
+    .login-box input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    .login-box button {
+      background: linear-gradient(90deg, #a020f0, #ff3b3b);
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .switch-link a { color: #ff3b3b; }
+
+    /* === FOOTER === */
+    #footer {
+      background-color: #111;
+      padding: 40px 0;
+    }
+    .footer-column h4 { color: #ff3b3b; margin-bottom: 15px; }
+    .footer-column a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    .footer-column a:hover { color: #a020f0; }
+
+    footer {
+      background-color: #0a0a0a;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <span class="merah">Toko</span><span class="putih">Laptop</span><span class="ungu">Gaming</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="#" class="nav-link">Beranda</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Koleksi</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Tentang Kami</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Kontak</a></li>
+          <li class="nav-item"><a href="#login" class="nav-link">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="hero-content">
+      <h2>Power Up Your Game!</h2>
+      <p>Temukan laptop gaming terbaik dengan performa ekstrem dan desain futuristik.</p>
+      <button>Belanja Sekarang</button>
+    </div>
+  </section>
+
+  <!-- FITUR -->
+  <section class="container py-5 text-center">
+    <div class="row">
+      <div class="col-md-4 fitur-item">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Pengiriman Cepat</h3>
+        <p>Pesanan dikirim dalam 24 jam ke seluruh Indonesia.</p>
+      </div>
+      <div class="col-md-4 fitur-item">
+        <i class="fa-solid fa-headset"></i>
+        <h3>Dukungan 24/7</h3>
+        <p>Tim support kami siap membantu kamu kapan saja.</p>
+      </div>
+      <div class="col-md-4 fitur-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Garansi Aman</h3>
+        <p>Produk bergaransi resmi dan terpercaya.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK -->
+  <section class="container py-5">
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4 col-lg-3">
+        <div class="produk">
+          <img src="https://image2url.com/images/1760361074247-79659580-4fd4-4565-9c9c-634a56efb5ca.jpg" alt="ASUS ROG Strix G16">
+          <h3>ASUS ROG Strix G16</h3>
+          <p>Rp 23.989.000</p>
+          <button>Beli Sekarang</button>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="produk">
+          <img src="https://image2url.com/images/1760361123053-7e00af79-c589-45e2-8422-c30607a523fc.jpg" alt="MSI Crosshair 16">
+          <h3>MSI Crosshair 16</h3>
+          <p>Rp 22.489.000</p>
+          <button>Beli Sekarang</button>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="produk">
+          <img src="https://image2url.com/images/1760361160295-6a000e9b-e077-4692-8f4a-6cf0541e770f.jpeg" alt="Acer Predator Helios Neo 16">
+          <h3>Acer Predator Helios Neo 16</h3>
+          <p>Rp 21.800.000</p>
+          <button>Beli Sekarang</button>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="produk">
+          <img src="https://image2url.com/images/1760361193431-6718f93e-9ece-4138-a30f-b89749413549.jpg" alt="Lenovo Legion 5 Pro">
+          <h3>Lenovo Legion 5 Pro</h3>
+          <p>Rp 20.700.000</p>
+          <button>Beli Sekarang</button>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="produk">
+          <img src="https://image2url.com/images/1760361620346-e7816643-b585-4837-a3b8-7232f6e41367.jpg" alt="HP Omen 16">
+          <h3>HP Omen 16</h3>
+          <p>Rp 19.500.000</p>
+          <button>Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND PARTNER -->
+  <section class="brand-section">
+    <div class="container text-center">
+      <h2>Brand Partner</h2>
+      <div class="row justify-content-center align-items-center g-4">
+        <div class="col-6 col-md-2"><img src="https://image2url.com/images/1760783624849-977801ed-6aa5-4321-9dee-b75718bd5582.png" class="brand-logo img-fluid" alt="ASUS"></div>
+        <div class="col-6 col-md-2"><img src="https://image2url.com/images/1760783682647-219be0a0-b4c3-4f64-a853-da1c9e7d6ab0.png" class="brand-logo img-fluid" alt="MSI"></div>
+        <div class="col-6 col-md-2"><img src="https://image2url.com/images/1760783713743-ff22a1a9-4365-48ba-abf5-bc922e3a60c4.png" class="brand-logo img-fluid" alt="Acer"></div>
+        <div class="col-6 col-md-2"><img src="https://image2url.com/images/1760783744204-3ef9b7ac-4e1d-41cd-ab5c-25acc96e37a7.png" class="brand-logo img-fluid" alt="Lenovo"></div>
+        <div class="col-6 col-md-2"><img src="https://image2url.com/images/1760783769831-828b5eff-65eb-411a-97bb-fd133600d09b.png" class="brand-logo img-fluid" alt="HP"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIN & REGISTER -->
+  <div id="login" class="overlay">
+    <div class="login-box">
+      <a href="#" class="close">&times;</a>
+      <h2>Login</h2>
+      <form>
+        <input type="text" placeholder="Email atau Username" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Masuk</button>
+      </form>
+      <div class="switch-link">
+        Belum punya akun? <a href="#register">Daftar di sini</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="register" class="overlay">
+    <div class="login-box">
+      <a href="#" class="close">&times;</a>
+      <h2>Daftar</h2>
+      <form>
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Buat Akun</button>
+      </form>
+      <div class="switch-link">
+        Sudah punya akun? <a href="#login">Login di sini</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div id="footer" class="container text-center text-md-start">
+    <div class="row">
+      <div class="col-md-4 footer-column">
+        <h4>QUESTIONS</h4>
+        <a href="#">How to Buy</a>
+        <a href="#">Payment</a>
+      </div>
+      <div class="col-md-4 footer-column">
+        <h4>CATEGORIES</h4>
+        <a href="#">Tenda & Shelter</a>
+        <a href="#">Peralatan Masak</a>
+        <a href="#">Tas & Ransel</a>
+      </div>
+      <div class="col-md-4 footer-column">
+        <h4>FOLLOW US</h4>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Toko Laptop Gaming</p>
+    <p>Tingkatkan performa dan rasakan pengalaman gaming tanpa batas.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</
