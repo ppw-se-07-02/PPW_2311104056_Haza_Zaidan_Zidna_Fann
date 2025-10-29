@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tugas 3 - jQuery Medium</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    button {
+      font-size: 18px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 28px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <button id="tombol">Klik Aku</button>
+  <p id="pesan">Teks akan berubah setelah tombol diklik.</p>
+
+  <script>
+    $(document).ready(function() {
+      $("#tombol").click(function() {
+        $("#pesan").text("Tombol sudah diklik!").css("color", "red");
+      });
+    });
+  </script>
+</body>
+</html>
