@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The jQuery Example</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+    ></script>
+    <script>
+      //   $(document).ready(function () {
+      //     $("body").append("<p>Hello World!</p>");
+      //     });
+      //   $(document).ready(function () {
+      //      var hobi = ["Membaca", "Menonton Anime", "Bermain Game"];
+      //      $("#hasil").text("Hobi saya adalah: " + hobi[1]);
+      //    });
+      // $(document).ready(function () {
+      //     var a = 10;
+      //     var b = 5;
+      //     var hasil = a + b;
+
+      //     $("#hasil").html("Hasil Penjumlahan " +  hasil );
+      // });
+      // $(document).ready(function () {
+      //     var nilai = 75;
+
+      //     if (nilai>=70) {
+      //         $("#hasil").html("Selamat, Anda Lulus!");
+      //         $("#hasil").css("color", "green");
+      //     } else {
+      //         $("#hasil").html("Maaf, Anda Tidak Lulus.");
+      //         $("#hasil").css("color", "red");
+      //     }
+      // });
+      //   $(document).ready(function () {
+      //     $("#hide").click(function () {
+      //       $("p").hide();
+      //     });
+      //     $("#show").click(function () {
+      //       $("p").show();
+      //     });
+      //   });
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("div").anim;
+          ate({ height: "toggle" });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- <div id="hasil"></div> -->
+    <p>If you click on the "Hide" button, I will disappear.</p>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+
+    <p>Click the button multiple times to toggle the animation.</p>
+    <p>
+      By default, all HTML elements have a static position, and cannot be moved.
+      To manipulate the position, remember to first set the CSS position
+      property of the element to relative, fixed, or absolute!
+    </p>
+    <div
+      style="
+        background: #98bf21;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+      "
+    ></div>
+  </body>
+</html>
